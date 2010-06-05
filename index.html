@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>quote me some fight club</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  var charIndex = 0;
+  var intervalID = 0;
+  var message = "";
+  function step() {
+    $("#rendered-message").append(message.charAt(charIndex));
+    charIndex++;
+    if (charIndex >= message.length) { clearInterval(intervalID); }
+  }
+  $(document).ready(function() {
+    message = $("#message").text();
+    intervalID = setInterval(step, 100);
+  });
+  </script>
+  <style type="text/css">
+    body { background-color: #1B1B1C; font-family: helvetica,arial,sans-serif; margin: 0; padding:; 0; }
+    h1 { color: #FF0066; font-size: 96px; letter-spacing:-4px; line-height:90%; text-align:left; margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <div id="message" style="display: none">{{ quote }}</div>
+  <h1 id="rendered-message"></h1>
+</body>
+</html>
